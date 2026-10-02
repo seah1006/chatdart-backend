@@ -1,6 +1,6 @@
 """LightGBM next operating profit forecast features.
 
-Synced with AI server (skyhubstk/ai-server) for Phase 48.
+Synced with the AI part's repository for Phase 48.
 """
 import numpy as np
 import pandas as pd

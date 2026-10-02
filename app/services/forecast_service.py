@@ -46,7 +46,7 @@ def _get_model_fin():
         if not MODEL_PATH_FIN.exists():
             raise RuntimeError(
                 f"금융 예측 모델 파일이 없습니다: {MODEL_PATH_FIN}. "
-                "skyhubstk/ai-server 의 models/model_fin.pkl 을 배치하세요."
+                "AI 파트가 제공한 models/model_fin.pkl 을 배치하세요."
             )
         _model_fin = load(MODEL_PATH_FIN)
         return _model_fin

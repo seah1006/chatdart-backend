@@ -1,4 +1,4 @@
-"""OpenAI ChatCompletion 기반 요약 - AI팀(skyhubstk/ai-server) 이식."""
+"""OpenAI ChatCompletion 기반 요약 - AI 파트 저장소에서 이식."""
 import json
 import logging
 import re
