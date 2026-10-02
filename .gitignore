@@ -1,0 +1,76 @@
+# 환경변수 (API Key, DB 비밀번호 등 민감 정보)
+.env
+
+# SQLite 데이터베이스
+*.db
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# 가상환경
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code 로컬 설정 (개인 환경 종속, skills·commands 제외)
+.claude/*
+!.claude/skills/
+!.claude/skills/**
+!.claude/commands/
+!.claude/commands/**
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 로그
+*.log
+nohup.out
+
+# 서버 실행 중 생성되는 임시 파일
+*.db-shm
+*.db-wal
+.pytest_tmp_*/
+.pytest_cache/
+corp_test.log
+server*.log
+ngrok*.log
+
+# AI 모델 파일 — 학습 산출물, git 추적 제외
+models/*.pkl
+data/backtest_panel.csv
+
+# ngrok 실행 파일 (개인 환경 종속)
+ngrok.exe
+
+# 로컬 백업 파일 (시크릿 포함 가능 — 커밋 금지)
+*.bak
+
+# AWS 프로비저닝 산출물 (RDS 비밀번호·엔드포인트 등 시크릿 포함 — 커밋 금지)
+.deploy/
+# AWS 액세스 키 CSV·인증 파일 (시크릿 — 절대 커밋 금지)
+/aws/
+*accessKeys*.csv
+*.pem
+
+# oh-my-claudecode 로컬 세션 상태
+.omc/
+*.db.bak-*
+
+# 개인 취업 자료 (자기소개서 입력용 — 프로젝트 산출물 아님)
+docs/self_intro_*

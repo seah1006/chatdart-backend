@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v6
+
+      - name: Python 3.11 설정
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: 한글 폰트 설치 (PDF export 테스트용 — Dockerfile의 fonts-nanum과 동일)
+        run: sudo apt-get update && sudo apt-get install -y fonts-nanum
+
+      - name: 의존성 설치
+        run: pip install -r requirements.txt
+
+      - name: 테스트 실행
+        run: python -m pytest tests/ -v --tb=short -m "slow or not slow"
+        env:
+          DART_API_KEY: ci-dummy-dart-key  # 테스트는 DartService 를 모킹한다
+          API_SECRET_KEY: ci-test-secret-key-minimum-32-bytes-ok
+          JWT_SECRET_KEY: ci-test-jwt-secret-key-minimum-32-bytes
+          DATABASE_URL: sqlite:///./test.db
+          ENABLE_BACKGROUND_PREWARM: "False"
+          ENV: development
